@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: aks-infra-apps
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/danielgrob/aks-argo-gitops.git
+        revision: HEAD
+        pathParamPrefix: ""
+        directories:
+          - path: "*"
+  template:
+    metadata:
+      name: '{{path.basenameNormalized}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/danielgrob/aks-argo-gitops.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
