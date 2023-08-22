@@ -4,7 +4,7 @@ metadata:
   name: nginx
   annotations:
     cert-manager.io/cluster-issuer: cloudflare-lets-encrypt
-    kubernetes.io/ingress.class: public
+    kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
 spec:
   tls:
