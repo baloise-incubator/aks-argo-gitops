@@ -4,9 +4,8 @@ metadata:
   name: nginx-temp
   annotations:
     cert-manager.io/cluster-issuer: cloudflare-lets-encrypt
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
         - temp.prinzba.ch
