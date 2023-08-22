@@ -1,18 +1,18 @@
 apiVersion: resources.azure.com/v1api20200601
 kind: ResourceGroup
 metadata:
-  name: pg-elephant-rg
+  name: pg-shark-rg
 spec:
   location: westeurope
 ---
 apiVersion: dbforpostgresql.azure.com/v1api20210601
 kind: FlexibleServer
 metadata:
-  name: pg-elephant-server
+  name: pg-shark-server
 spec:
   location: westeurope
   owner:
-    name: pg-elephant-rg
+    name: pg-shark-rg
   version: "14"
   sku:
     name: Standard_B1ms
@@ -27,19 +27,19 @@ spec:
 apiVersion: dbforpostgresql.azure.com/v1api20210601
 kind: FlexibleServersDatabase
 metadata:
-  name: pg-elephant-server-db
+  name: pg-shark-server-db
 spec:
   owner:
-    name: pg-elephant-server
+    name: pg-shark-server
   charset: utf8
 ---
 apiVersion: dbforpostgresql.azure.com/v1api20210601
 kind: FlexibleServersFirewallRule
 metadata:
-  name: pg-elephant-allow-all
+  name: pg-shark-allow-all
 spec:
   owner:
-    name: pg-elephant-server
+    name: pg-shark-server
   # The following address range allows anybody to connect to this server.
   # This should only be used for demo purposes and not in production!
   # There are other ways to control server access which are not covered here, you can see more about it here:
@@ -54,6 +54,6 @@ metadata:
 stringData:
   USERNAME: "admindany"
   PASSWORD: "secret"
-  SERVER:   "pg-elephant-server.postgres.database.azure.com"
-  DATABASE: "pg-elephant-server-db"
+  SERVER:   "pg-shark-server.postgres.database.azure.com"
+  DATABASE: "pg-shark-server-db"
   PORT:     "5432"
