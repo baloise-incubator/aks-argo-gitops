@@ -6,3 +6,13 @@ data:
   server.insecure: "false"
   users.anonymous.enabled: "true"
   admin.enabled: "true"
+  dex.config: |
+    connectors:
+    - type: microsoft
+      id: microsoft
+      name: My TestComp
+      config:
+        clientID: 0f12c098-f52f-48e8-9051-51b1b8beb206
+        clientSecret: $azuread-oidc-client-secret:client-secret
+        redirectURI: https://104.45.168.127/auth/callback
+        tenant: aa46c710-08d2-4537-90bb-fd6f26f0ca2a

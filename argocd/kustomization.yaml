@@ -4,6 +4,7 @@ namespace: argocd
 
 resources:
   - base/argocd-namespace.yaml
+  - base/azuread-oidc-client-secret.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.0/manifests/install.yaml
   - base/default-app-project.yaml
   - base/bootstrap-application-set.yaml
@@ -11,4 +12,5 @@ resources:
 patchesStrategicMerge:
   - overlays/argocd-server-service.yaml
   - overlays/argocd-cm.yaml
+  - overlays/argocd-rbac-cm.yaml
 
