@@ -1,0 +1,74 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-lets-encrypt
+    kubernetes.io/ingress.class: public
+    kubernetes.io/tls-acme: "true"
+spec:
+  tls:
+    - hosts:
+        - temp.prinzba.ch
+      secretName: nginx-cert
+  rules:
+    - host: temp.prinzba.ch
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx
+                port:
+                  number: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: nginx
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - image: nginx
+          name: nginx
+          ports:
+            - containerPort: 80
+
+---
+
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: "temp.prinzba.ch"
+spec:
+  endpoints:
+    - dnsName: "temp.prinzba.ch"
+      recordTTL: 180
+      recordType: CNAME
+      targets:
+        - "prinzba.ch"
