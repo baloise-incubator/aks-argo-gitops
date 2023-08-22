@@ -1,2 +1,3 @@
 azure-service-operator:
   crdPattern: "resources.azure.com/*;containerservice.azure.com/*;keyvault.azure.com/*;managedidentity.azure.com/*;eventhub.azure.com/*;dbforpostgresql.azure.com/*"
+  createAzureOperatorSecret: false
