@@ -4,7 +4,7 @@ metadata:
   name: argocd-cm
 data:
   server.insecure: "false"
-  users.anonymous.enabled: "true"
+  users.anonymous.enabled: "false"
   admin.enabled: "true"
   #dex.config: |
   #  connectors:
