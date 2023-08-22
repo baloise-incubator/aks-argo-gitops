@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: external-dns
+spec:
+  template:
+    spec:
+      containers:
+        -
+          name: external-dns
+          image: k8s.gcr.io/external-dns/external-dns:v0.13.5
+          args:
+            - --source=crd
+            - --crd-source-kind=DNSEndpoint
+            - --provider=cloudflare
+            - --txt-prefix=extdns.
+            - --interval=20s
+            - --cloudflare-dns-records-per-page=5000
+            - --events
+            - --log-level=info
+          env:
+            - name: CF_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: api-token
+                  name: cloudflare-api-token
