@@ -10,9 +10,7 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.1/manifests/install.yaml
   - base/default-app-project.yaml
   - base/bootstrap-application-set.yaml
-
-patchesStrategicMerge:
-  - overlays/argocd-server-service.yaml
-  - overlays/argocd-cm.yaml
- # - overlays/argocd-rbac-cm.yaml
-
+patches:
+  - path: overlays/argocd-server-service.yaml
+  - path: overlays/argocd-cm.yaml
+ # - path: overlays/argocd-rbac-cm.yaml

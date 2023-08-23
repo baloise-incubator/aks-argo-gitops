@@ -7,6 +7,6 @@ resources:
   - https://raw.githubusercontent.com/kubernetes-sigs/external-dns/v0.13.4/docs/contributing/crd-source/crd-manifest.yaml
   - https://github.com/kubernetes-sigs/external-dns/kustomize?ref=v0.13.4
 
-patchesStrategicMerge:
-  - overlays/external-dns-deployment.yaml
-  - overlays/external-dns-cluster-role.yaml
+patches:
+  - path: overlays/external-dns-deployment.yaml
+  - path: overlays/external-dns-cluster-role.yaml
