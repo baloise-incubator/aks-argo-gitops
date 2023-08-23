@@ -1,3 +1,15 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: "temp.prinzba.ch"
+spec:
+  endpoints:
+    - dnsName: "temp.prinzba.ch"
+      recordTTL: 180
+      recordType: CNAME
+      targets:
+        - "prinzba.ch"
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -22,9 +34,7 @@ spec:
                 name: nginx-temp
                 port:
                   number: 80
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -37,9 +47,7 @@ spec:
       targetPort: 80
   selector:
     app: nginx-temp
-
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -58,36 +66,3 @@ spec:
           name: nginx
           ports:
             - containerPort: 80
-
----
-
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: "temp.prinzba.ch"
-spec:
-  endpoints:
-    - dnsName: "temp.prinzba.ch"
-      recordTTL: 180
-      recordType: CNAME
-      targets:
-        - "prinzba.ch"
-
----
-
-apiVersion: external-secrets.io/v1beta1
-kind: ExternalSecret
-metadata:
-  name: hanswurscht
-spec:
-  data:
-    - remoteRef:
-        conversionStrategy: Default
-        key: secret/hans
-      secretKey: hans
-  refreshInterval: 1h
-  secretStoreRef:
-    kind: ClusterSecretStore
-    name: azure-key-vault-store
-  target:
-    deletionPolicy: Delete
