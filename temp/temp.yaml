@@ -1,14 +1,14 @@
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: "temp.prinzba.ch"
+  name: "temp.campbaloise.ch"
 spec:
   endpoints:
-    - dnsName: "temp.prinzba.ch"
+    - dnsName: "temp.campbaloise.ch"
       recordTTL: 180
       recordType: CNAME
       targets:
-        - "prinzba.ch"
+        - "campbaloise.ch"
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -21,10 +21,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - temp.prinzba.ch
+        - temp.campbaloise.ch
       secretName: nginx-cert
   rules:
-    - host: temp.prinzba.ch
+    - host: temp.campbaloise.ch
       http:
         paths:
           - path: /
