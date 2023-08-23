@@ -1,0 +1,8 @@
+{{- if .Values.rg.enabled -}}
+apiVersion: resources.azure.com/v1api20200601
+kind: ResourceGroup
+metadata:
+  name: rg-{{.Chart.Name}}
+spec:
+  location: westeurope
+{{ end}}

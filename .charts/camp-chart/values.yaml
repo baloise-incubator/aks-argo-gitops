@@ -56,6 +56,9 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+rg:
+  enabled: false
+
 autoscaling:
   enabled: false
   minReplicas: 1
