@@ -2,7 +2,7 @@
 apiVersion: resources.azure.com/v1api20200601
 kind: ResourceGroup
 metadata:
-  name: rg-{{ include "camp-chart.fullname" . }}
+  name: rg-{{ template "camp-chart.namespace" $ }}
 spec:
   location: westeurope
 {{ end}}

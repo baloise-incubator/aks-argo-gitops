@@ -8,7 +8,7 @@ metadata:
     {{- include "camp-chart.labels" . | nindent 4 }}
 spec:
   endpoints:
-    - dnsName: {{ .Values.ingress.subdomain }}.{{ .Values.ingress.domain}}
+    - dnsName: {{ if .Values.ingress.subdomain }}{{ .Values.ingress.subdomain }}{{ else }}{{ template "camp-chart.namespace" $ }}.{{ .Values.ingress.domain}}
       recordTTL: 180
       recordType: CNAME
       targets:

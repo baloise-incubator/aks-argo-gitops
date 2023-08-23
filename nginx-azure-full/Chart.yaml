@@ -1,6 +1,6 @@
 apiVersion: v2
 version: 1.0.0
-name: nginx-azure
+name: nginx-azure-full
 dependencies:
   - name: camp-chart
     version: 0.1.0

@@ -14,10 +14,10 @@ spec:
   ingressClassName: "nginx"
   tls:
     - hosts:
-        - {{ .Values.ingress.subdomain }}.{{ .Values.ingress.domain}}
+        - {{ if .Values.ingress.subdomain }}{{ .Values.ingress.subdomain }}{{ else }}{{ template "camp-chart.namespace" $ }}.{{ .Values.ingress.domain}}
       secretName: nginx-cert
   rules:
-    - host: {{ .Values.ingress.subdomain }}.{{ .Values.ingress.domain}}
+    - host: {{ if .Values.ingress.subdomain }}{{ .Values.ingress.subdomain }}{{ else }}{{ template "camp-chart.namespace" $ }}.{{ .Values.ingress.domain}}
       http:
         paths:
           - path: /

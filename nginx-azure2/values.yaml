@@ -1,9 +1,0 @@
-nginx-azure2:
-  image:
-    repository: nginx
-    tag: latest
-  ingress:
-    subdomain: nginx-azure2
-    domain: campbaloise.ch
-  rg:
-    enabled: true

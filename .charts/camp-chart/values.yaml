@@ -13,6 +13,7 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+namespaceOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -42,7 +43,7 @@ service:
 
 ingress:
   enabled: true
-  domain: ""
+  domain: "campbaloise.ch"
   subdomain: ""
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

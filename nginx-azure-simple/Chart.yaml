@@ -1,8 +1,8 @@
 apiVersion: v2
 version: 1.0.0
-name: nginx-azure2
+name: nginx-azure-simple
 dependencies:
   - name: camp-chart
     version: 0.1.0
     repository: file://../.charts/camp-chart
-    alias: nginx-azure2
+    alias: nginx-azure
