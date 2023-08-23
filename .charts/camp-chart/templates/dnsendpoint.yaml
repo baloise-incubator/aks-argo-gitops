@@ -1,0 +1,16 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "camp-chart.fullname" . -}}
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "camp-chart.labels" . | nindent 4 }}
+spec:
+  endpoints:
+    - dnsName: {{ .Values.ingress.subdomain }}.{{ .Values.ingress.domain}}
+      recordTTL: 180
+      recordType: CNAME
+      targets:
+        - {{ .Values.ingress.domain}}
+{{- end }}

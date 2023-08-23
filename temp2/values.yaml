@@ -1,0 +1,7 @@
+temp2:
+  image:
+    repository: nginx
+    tag: latest
+  ingress:
+    subdomain: temp2
+    domain: campbaloise.ch
