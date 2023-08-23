@@ -3,6 +3,6 @@ version: 1.0.0
 name: temp2
 dependencies:
   - name: camp-chart
-    version: 2.0.0
+    version: 1.0.0
     repository: file://../.camp-chart
     alias: temp2
