@@ -14,9 +14,7 @@ replacements:
   - source:
       kind: ConfigMap
       name: mycm
-      namespace: external-secrets
-      fieldPath: metadata.name
-      version: v1
+      fieldPath: data.KEY
     targets:
       - select:
           name: azure-key-vault-store
