@@ -15,7 +15,7 @@ replacements:
       kind: ConfigMap
       name: mycm
       namespace: external-secrets
-      fieldPath: data.vaultUrl
+      fieldPath: metadata.name
       version: v1
     targets:
       - select:
