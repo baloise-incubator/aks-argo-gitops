@@ -1,7 +1,7 @@
-temp2:
+nginx:
   image:
     repository: nginx
     tag: latest
   ingress:
-    subdomain: gugguswurchtsalat
+    subdomain: nginx
     domain: campbaloise.ch

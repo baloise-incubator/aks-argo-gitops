@@ -1,8 +1,8 @@
 apiVersion: v2
 version: 1.0.0
-name: temp2
+name: nginx
 dependencies:
   - name: camp-chart
     version: 0.1.0
     repository: file://../.charts/camp-chart
-    alias: temp2
+    alias: nginx
