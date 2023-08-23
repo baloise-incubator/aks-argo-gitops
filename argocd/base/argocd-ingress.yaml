@@ -15,10 +15,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - argocd-aks.prinzba.ch
+        - argocd.campbaloise.ch
       secretName: argocd-secret # do not change, this is provided by Argo CD
   rules:
-    - host: argocd-aks.prinzba.ch
+    - host: argocd.campbaloise.ch
       http:
         paths:
           - path: /

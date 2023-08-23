@@ -5,8 +5,8 @@ metadata:
   namespace: argocd
 spec:
   endpoints:
-    - dnsName: "argocd-aks.prinzba.ch"
+    - dnsName: "argocd.campbaloise.ch"
       recordTTL: 180
       recordType: CNAME
       targets:
-        - "prinzba.ch"
+        - "campbaloise.ch"
