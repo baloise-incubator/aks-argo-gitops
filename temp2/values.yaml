@@ -3,5 +3,5 @@ temp2:
     repository: nginx
     tag: latest
   ingress:
-    subdomain: temp2
+    subdomain: gugguswurchtsalat
     domain: campbaloise.ch
