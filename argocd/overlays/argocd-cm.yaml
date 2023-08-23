@@ -5,7 +5,6 @@ metadata:
 data:
   server.insecure: "false"
   users.anonymous.enabled: "false"
-  kustomize.buildOptions: --enable-helm
   admin.enabled: "true"
   #dex.config: |
   #  connectors:
