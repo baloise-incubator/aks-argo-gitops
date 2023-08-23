@@ -83,7 +83,7 @@ spec:
   data:
     - remoteRef:
         conversionStrategy: Default
-        key: /hans
+        key: secret/hans
       secretKey: hans
   refreshInterval: 1h
   secretStoreRef:
