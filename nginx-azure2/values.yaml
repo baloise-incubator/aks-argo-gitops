@@ -1,4 +1,4 @@
-nginx-azure:
+nginx-azure3:
   image:
     repository: nginx
     tag: latest

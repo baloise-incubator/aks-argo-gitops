@@ -5,4 +5,4 @@ dependencies:
   - name: camp-chart
     version: 0.1.0
     repository: file://../.charts/camp-chart
-    alias: nginx-azure
+    alias: nginx-azure3
