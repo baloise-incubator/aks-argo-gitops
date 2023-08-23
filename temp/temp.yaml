@@ -82,8 +82,9 @@ metadata:
 spec:
   data:
     - remoteRef:
+        conversionStrategy: Default
         key: /hans
-      secretKey: blabla
+      secretKey: hans
   refreshInterval: 1h
   secretStoreRef:
     kind: ClusterSecretStore
