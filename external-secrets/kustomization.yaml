@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: external-secrets
+
+resources:
+  - base/key-vault.cluster-secret-store.yaml
+
+helmCharts:
+  - name: external-secrets
+    releaseName: external-secrets
+    repo: https://charts.external-secrets.io
+
+replacements:
+  - source:
+      kind: ConfigMap
+      name: mycm
+      namespace: terraform-managed
+      fieldPath: data.vaultUrl
+    targets:
+      - select:
+          name: azure-key-vault-store
+          kind: ClusterSecretStore
+        fieldPaths:
+          - spec.provider.azurekv.vaultUrl
+
+
+
+
