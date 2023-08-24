@@ -1,4 +1,4 @@
-nginx-azure:
+voting-app-chart:
   image:
     repository: mcr.microsoft.com/azuredocs/azure-vote-front
     tag: v1
