@@ -82,8 +82,45 @@ kind: Service
 metadata:
   name: azure-vote-front
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - port: 80
   selector:
     app: azure-vote-front
+---
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: vote-dns
+spec:
+  endpoints:
+    - dnsName: "vote.campbaloise.ch"
+      recordTTL: 180
+      recordType: CNAME
+      targets:
+        - "campbaloise.ch"
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vote-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-lets-encrypt
+    kubernetes.io/tls-acme: "true"
+spec:
+  ingressClassName: "nginx"
+  tls:
+    - hosts:
+        - vote.campbaloise.ch
+      secretName: vote-secret
+  rules:
+    - host: vote.campbaloise.ch
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: azure-vote-front
+                port:
+                  name: https
