@@ -1,0 +1,17 @@
+nginx-azure:
+  image:
+    repository: mcr.microsoft.com/azuredocs/azure-vote-front
+    tag: v1
+  env:
+    - name: REDIS
+      valueFrom:
+        secretKeyRef:
+          name: redis-hostname
+          key: hostName
+          optional: false
+    - name: REDIS_PWD
+      valueFrom:
+        secretKeyRef:
+          name: redis-access-key
+          key: primaryKey
+          optional: false

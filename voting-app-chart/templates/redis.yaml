@@ -1,0 +1,26 @@
+apiVersion: cache.azure.com/v1api20201201
+kind: Redis
+metadata:
+  name: azure-vote-redis
+spec:
+  location: westeurope
+  owner:
+    name: rg-azure-vote-chart
+  sku:
+    name: Basic
+    family: C
+    capacity: 1
+  enableNonSslPort: true
+  minimumTlsVersion: "1.2"
+  redisConfiguration:
+    maxmemory-delta: "10"
+    maxmemory-policy: allkeys-lru
+  redisVersion: "6"
+  operatorSpec:
+    secrets:
+      hostName:
+        name: redis-hostname
+        key: hostName
+      primaryKey:
+        name: redis-access-key
+        key: primaryKey
