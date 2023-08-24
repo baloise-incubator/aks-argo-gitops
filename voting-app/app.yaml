@@ -123,4 +123,4 @@ spec:
               service:
                 name: azure-vote-front
                 port:
-                  name: https
+                  number: 80
