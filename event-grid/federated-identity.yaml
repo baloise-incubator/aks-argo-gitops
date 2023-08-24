@@ -1,0 +1,15 @@
+apiVersion: managedidentity.azure.com/v1api20220131preview
+kind: FederatedIdentityCredential
+metadata:
+  name: fedid-event-grid-publisher
+spec:
+  owner:
+    name: mid-event-grid-publisher
+  audiences:
+    # For Workload Identity, Audiences should always be "api://AzureADTokenExchange"
+    - api://AzureADTokenExchange
+  # For Workload Identity, Issuer should be the OIDC endpoint of the cluster. For AKS this will look like
+  # https://oidc.prod-aks.azure.com/00000000-0000-0000-0000-00000000000/
+  issuer: https://westeurope.oic.prod-aks.azure.com/1144570c-494c-493e-8d7d-9da713eca2a4/00340db7-b8f0-4614-80dc-cd7de794681c/
+  # For Workload Identity, Subject should always be system:serviceaccount:<namespace>:<serviceaccount>
+  subject: system:serviceaccount:ingress-nginx:ingress-nginx
