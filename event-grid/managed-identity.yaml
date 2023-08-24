@@ -6,3 +6,11 @@ spec:
   location: westeurope
   owner:
     name: rg-event-grid
+  operatorSpec:
+    configMaps:
+      principalId:
+        name: identity-settings
+        key: principalId
+      clientId:
+        name: identity-settings
+        key: clientId
