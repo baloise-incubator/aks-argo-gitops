@@ -6,13 +6,14 @@ data:
   server.insecure: "false"
   users.anonymous.enabled: "false"
   admin.enabled: "true"
-  #dex.config: |
-  #  connectors:
-    #  - type: microsoft
-    #   id: microsoft
-    # name: My TestComp
-    # config:
-    #   clientID: 0f12c098-f52f-48e8-9051-51b1b8beb206
-    #   clientSecret: $azuread-oidc-client-secret:client-secret
-    #   redirectURI: https://104.45.168.127/auth/callback
-  #   tenant: aa46c710-08d2-4537-90bb-fd6f26f0ca2a
+  url: https://argocd.campbaloise.ch
+  dex.config: |
+    connectors:
+      - type: github
+        id: github
+        name: GitHub
+        config:
+          clientID: $github-argocd-oauth-client:client-id
+          clientSecret: $github-argocd-oauth-client:client-secret
+          orgs:
+          - name: baloise-incubator

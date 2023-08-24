@@ -4,13 +4,12 @@ namespace: argocd
 
 resources:
   - base/argocd-namespace.yaml
+  - base/github-argocd-oauth-client.external-secret.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.1/manifests/install.yaml
   - base/argocd-dns-endpoint.yaml
   - base/argocd-ingress.yaml
-  - base/azuread-oidc-client-secret.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.1/manifests/install.yaml
   - base/default-app-project.yaml
   - base/bootstrap-application-set.yaml
 patches:
-  - path: overlays/argocd-server-service.yaml
   - path: overlays/argocd-cm.yaml
- # - path: overlays/argocd-rbac-cm.yaml
+  - path: overlays/argocd-rbac-cm.yaml

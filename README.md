@@ -3,6 +3,8 @@
 Create secrets in key vault first:
 - cloudflare-api-key
 - cloudflare-api-token
+- secret/github-oauth-argo-client-id
+- secret/github-oauth-argo-client-secret
 
 ## Login with Azure CLI
 Login to the cluster, see aks Overview -> Connect -> Azure CLI.

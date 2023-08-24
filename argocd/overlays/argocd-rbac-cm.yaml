@@ -14,4 +14,4 @@ data:
     p, role:org-admin, logs, get, *, allow
     p, role:org-admin, exec, create, */*, allow
 
-    g, "327e7dc6-3229-4094-b884-fb853419e493", role:org-admin
+    g, baloise-incubator:organization-managers, role:org-admin
