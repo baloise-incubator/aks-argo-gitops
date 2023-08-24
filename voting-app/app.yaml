@@ -12,7 +12,7 @@ metadata:
 spec:
   location: westeurope
   owner:
-    name: azure-vote
+    name: azure-vote-rg
   sku:
     name: Basic
     family: C
