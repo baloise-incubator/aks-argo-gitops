@@ -1,13 +1,7 @@
 # aks-argo-gitops
 
-Create secrets in key vault first:
-- cloudflare-api-key
-- cloudflare-api-token
-- secret/github-oauth-argo-client-id
-- secret/github-oauth-argo-client-secret
-
 ## Login with Azure CLI
-Login to the cluster, see aks Overview -> Connect -> Azure CLI.
+Login to the cluster, see Azure Portal -> Your AKS Cluster Overview -> Connect -> Azure CLI.
 
 ## Install external-dns including CRD's
 ```bash
