@@ -1,8 +1,8 @@
 apiVersion: v2
 version: 1.0.0
-name: voting-app-chart
+name: voting-app-next
 dependencies:
   - name: camp-chart
     version: 0.1.0
     repository: file://../.charts/camp-chart
-    alias: voting-app-chart
+    alias: voting-app-next

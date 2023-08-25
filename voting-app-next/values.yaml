@@ -1,7 +1,9 @@
-voting-app-chart:
+voting-app-next:
   image:
     repository: mcr.microsoft.com/azuredocs/azure-vote-front
     tag: v1
+  rg:
+    enabled: true
   env:
     - name: REDIS
       valueFrom:

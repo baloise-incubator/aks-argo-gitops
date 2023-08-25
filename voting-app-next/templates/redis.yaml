@@ -1,11 +1,11 @@
 apiVersion: cache.azure.com/v1api20201201
 kind: Redis
 metadata:
-  name: azure-vote-chart-redis
+  name: voting-app-next-redis
 spec:
   location: westeurope
   owner:
-    name: rg-azure-vote-chart
+    name: rg-voting-app-next
   sku:
     name: Basic
     family: C
