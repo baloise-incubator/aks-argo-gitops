@@ -1,5 +1,7 @@
 # aks-argo-gitops
 
+Make sure that you are Cluster Admin.
+
 ## Login with Azure CLI
 Login to the cluster, see Azure Portal -> Your AKS Cluster Overview -> Connect -> Azure CLI.
 
