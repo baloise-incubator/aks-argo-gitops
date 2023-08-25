@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/danielgrob/aks-argo-gitops.git
+        repoURL: https://github.com/baloise-incubator/aks-argo-gitops.git
         revision: HEAD
         pathParamPrefix: ""
         directories:
@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/danielgrob/aks-argo-gitops.git
+        repoURL: https://github.com/baloise-incubator/aks-argo-gitops.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
