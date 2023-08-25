@@ -1,7 +1,0 @@
-nginx:
-  image:
-    repository: nginx
-    tag: latest
-  ingress:
-    subdomain: nginx
-    domain: campbaloise.ch
