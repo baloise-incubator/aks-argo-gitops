@@ -9,7 +9,6 @@ apiVersion: keyvault.azure.com/v1api20210401preview
 kind: Vault
 metadata:
   name: daniel-grob-vault
-  namespace: default
 spec:
   location: westeurope
   owner:
