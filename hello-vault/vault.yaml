@@ -18,4 +18,16 @@ spec:
     sku:
       family: A
       name: standard
-    createMode: recover
+    accessPolicies:
+      - applicationId: "1C793267-c310-d4ae-7BD5-5Af5BEF875D3"
+        objectId: "1C793267-c310-d4ae-7BD5-5Af5BEF875D3"
+        tenantId: "1144570c-494c-493e-8d7d-9da713eca2a4"
+        permissions:
+          certificates:
+            - "get"
+          keys:
+            - "get"
+          secrets:
+            - "get"
+          storage:
+            - "get"
