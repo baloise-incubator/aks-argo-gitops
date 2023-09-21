@@ -18,4 +18,4 @@ spec:
     sku:
       family: A
       name: standard
-    accessPolicies: []
+    createMode: recover
