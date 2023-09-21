@@ -14,6 +14,7 @@ spec:
   owner:
     name: daniel-grob-rg
   properties:
+    tenantId: "1144570c-494c-493e-8d7d-9da713eca2a4"
     sku:
       family: A
       name: standard
