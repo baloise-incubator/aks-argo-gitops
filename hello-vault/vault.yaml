@@ -1,18 +1,18 @@
 apiVersion: resources.azure.com/v1api20200601
 kind: ResourceGroup
 metadata:
-  name: rg-codecamp
+  name: rg-daniel-grob
 spec:
   location: westeurope
 ---
 apiVersion: keyvault.azure.com/v1api20210401preview
 kind: Vault
 metadata:
-  name: vault-codecamp
+  name: vault-daniel-grob
 spec:
   location: westeurope
   owner:
-    name: rg-codecamp
+    name: rg-daniel-grob
   properties:
     tenantId: "1144570c-494c-493e-8d7d-9da713eca2a4"
     sku:
