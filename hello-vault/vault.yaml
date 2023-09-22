@@ -8,7 +8,7 @@ spec:
 apiVersion: keyvault.azure.com/v1api20210401preview
 kind: Vault
 metadata:
-  name: vault-daniel-grob
+  name: vault-codecamp
 spec:
   location: westeurope
   owner:
